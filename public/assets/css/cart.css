@@ -1,0 +1,57 @@
+.s1:hover {
+    color: #fb5533;
+}
+
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+    vertical-align: middle;
+}
+
+table#cart tbody td .form-control {
+    width: 55%;
+}
+
+@media all and (max-width: 1202px) {
+    table#cart tbody td .form-control {
+        width: 10%;
+        display: inline !important;
+    }
+    .actions .delete-cart-item {
+        float: right;
+    }
+    table#cart thead {
+        display: none;
+    }
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 320px;
+    }
+    .prod_name {
+        margin-top: 10px;
+        color: #fff;
+        text-align: center;
+    }
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+        text-align: center;
+    }
+    table#cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 7rem;
+        text-align: left;
+    }
+    center {
+        text-align: right;
+        margin-top: -1.6rem!important;
+    }
+    table#cart tfoot td {
+        display: block;
+    }
+    table#cart tfoot td .btn {
+        display: block;
+    }
+}
