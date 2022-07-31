@@ -604,4 +604,12 @@ class AdminController extends Controller
 
         return view('admin.pages.reports.pdf.inventory',compact('prods'));
     }
+    public function delete(Request $request)
+    {
+        $id = $request->id;
+        $model = Order::where('id', $id);
+        $model->delete();
+
+        return response()->json(['status' => 'deleted!','icon'=>'success']);
+    }
 }

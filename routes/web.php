@@ -131,6 +131,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/ajax-cod', 'Admin\AdminController@ajax')->name('admin.data');
     Route::get('/ajax-op', 'Admin\AdminController@ajaxOP')->name('admin.data-op');
 
+    Route::post('/delete-item', 'Admin\AdminController@delete')->name('delete-item');
+
     // real time functions -- delivery dashboard
     Route::get('/delivery/ajax-orders', 'Admin\Delivery\DeliveryController@ajaxTable')->name('admin.ajax.table.delivery');
     Route::get('/delivery/ajax-orders-pending', 'Admin\Delivery\DeliveryController@ajaxTablePending')->name('admin.ajax.table.pending.delivery');

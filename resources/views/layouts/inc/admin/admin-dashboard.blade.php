@@ -247,11 +247,12 @@ $orderOnlinePayment = Order::where('status','1')->where('payment_method','!=','C
                 },
                 { mData: 'payment_method'},
                 { data: 'id', name: 'id', render:function(data, type, row){
-                    return "<a class='btn btn-primary btn-sm' href='/admin/view-update-order/"+ row.id +"'>View</a>"
+                    return "<a class='btn btn-primary btn-sm' href='/admin/view-update-order/"+ row.id +"'>View</a> <button class='btn btn-danger btn-sm' onclick='deleteItem("+row.id+")'>Delete</button>"
                     // return "<a href='/admin/view-update-order/'"+ row.id +">" + View+ "</a>"
                 }},
             ]
         });
+
 
         // count completed orders
         function getCompleted() {
@@ -295,6 +296,22 @@ $orderOnlinePayment = Order::where('status','1')->where('payment_method','!=','C
             });
         }
     });
+</script>
+<script>
+    function deleteItem(id) {
+
+            $.ajax({
+                headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+           type: "POST",
+           url: "{{ route('delete-item')}}",
+           data:{id:id},
+           success: function(result) {
+           $('#example').DataTable().ajax.reload( null, false );
+           }
+       });
+          }
 </script>
 
 
